@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import {Container} from "./App.styled";
-import {Section} from "./Section/Section";
-import {FeedbackOptions} from "./FeedbackOptions/FeedbackOptions";
-import 
+import { Container } from './App.styled';
+import { Section } from './Section/Section';
+import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
+import { Statistics } from './Statistics/Statistics';
+import { Notification } from './Notifications/Notifications';
 
-
-export class App extends Component  {
+export class App extends Component {
   state = {
     good: 0,
     neutral: 0,
@@ -34,12 +34,15 @@ export class App extends Component  {
     return Math.round((this.state.good / this.totalFeedback()) * 100);
   };
 
-  render() {return (
-    <Container>
-     <Section title="Please leave feedback">
-      <FeedbackOptions options={['Good', 'Neutral', 'Bad']}
-            onLeaveFeedback={this.handleFeedback}/>{' '}
-     </Section>
+  render() {
+    return (
+      <Container>
+        <Section title="Please leave feedback">
+          <FeedbackOptions
+            options={['Good', 'Neutral', 'Bad']}
+            onLeaveFeedback={this.handleFeedback}
+          />{' '}
+        </Section>
         <Section title="Statistics">
           {this.totalFeedback() !== 0 ? (
             <Statistics
@@ -53,5 +56,7 @@ export class App extends Component  {
             <Notification message="There is no feedback"></Notification>
           )}
         </Section>
-          </Container>);}
-};
+      </Container>
+    );
+  }
+}
