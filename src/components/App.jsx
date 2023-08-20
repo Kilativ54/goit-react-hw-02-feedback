@@ -14,9 +14,7 @@ export class App extends Component {
 
   handleFeedback = option => {
     const rating = option.target.name;
-    this.setState(state => ({ [rating]: state[rating] + 1 }))
-    
-    
+    this.setState(state => ({ [rating]: state[rating] + 1 }));
   };
 
   totalFeedback = () => {
@@ -35,7 +33,7 @@ export class App extends Component {
     const { good, neutral, bad } = this.state;
     const options = Object.keys(this.state);
     return (
-         <Container>
+      <Container>
         <Section title="Please leave feedback">
           <FeedbackOptions
             options={options}
